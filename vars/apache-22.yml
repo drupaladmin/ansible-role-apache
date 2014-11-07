@@ -9,3 +9,24 @@ apache_ports_configuration_items:
     regexp: "^NameVirtualHost ",
     line: "NameVirtualHost *:{{ apache_listen_port }}"
   }
+apache_prefork_configuration_items:
+  - {
+    regexp: "^StartServers ",
+    line: "Listen {{ apache_prefork_startservers }}"    
+  }
+  - {
+    regexp: "^MinSpareServers ",
+    line: "Listen {{ apache_prefork_minspareservers }}"    
+  }
+  - {
+    regexp: "^MaxSpareServers ",
+    line: "Listen {{ apache_prefork_maxspareservers }}"    
+  }
+  - {
+    regexp: "^MaxClients ",
+    line: "Listen {{ apache_prefork_maxclients }}"    
+  }
+  - {
+    regexp: "^MaxRequestsPerChild ",
+    line: "Listen {{ apache_prefork_maxrequestsperchild }}"    
+  }
