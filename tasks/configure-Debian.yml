@@ -13,6 +13,8 @@
     dest: "{{ apache_server_root }}/{{ apache_daemon }}.conf"
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
+    insertafter: "^<IfModule mpm_prefork_module>"
+    insertbefore: "^<IfModule>"
     state: present
   with_items: apache_prefork_configuration_items
   notify: restart apache

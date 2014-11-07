@@ -11,22 +11,22 @@ apache_ports_configuration_items:
   }
 apache_prefork_configuration_items:
   - {
-    regexp: "^StartServers ",
-    line: "Listen {{ apache_prefork_startservers }}"    
+    regexp: "^.*StartServers ",
+    line: "StartServers {{ apache_prefork_startservers }}"    
   }
   - {
-    regexp: "^MinSpareServers ",
-    line: "Listen {{ apache_prefork_minspareservers }}"    
+    regexp: "^.*MinSpareServers ",
+    line: "MinSpareServers {{ apache_prefork_minspareservers }}"    
   }
   - {
-    regexp: "^MaxSpareServers ",
-    line: "Listen {{ apache_prefork_maxspareservers }}"    
+    regexp: "^.*MaxSpareServers ",
+    line: "MaxSpareServers {{ apache_prefork_maxspareservers }}"    
   }
   - {
-    regexp: "^MaxClients ",
-    line: "Listen {{ apache_prefork_maxclients }}"    
+    regexp: "^.*MaxClients ",
+    line: "MaxClients {{ apache_prefork_maxclients }}"    
   }
   - {
-    regexp: "^MaxRequestsPerChild ",
-    line: "Listen {{ apache_prefork_maxrequestsperchild }}"    
+    regexp: "^.*MaxRequestsPerChild ",
+    line: "MaxRequestsPerChild {{ apache_prefork_maxrequestsperchild }}"    
   }
