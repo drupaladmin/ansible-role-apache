@@ -7,6 +7,10 @@ DirectoryIndex index.php index.html
   ServerName {{ vhost.servername }}
   DocumentRoot {{ vhost.documentroot }}
 
+{% if vhost.serveralias is defined %}
+  ServerAlias {{ vhost.serveralias }}
+{% endif %}
+
 {% if vhost.serveradmin is defined %}
   ServerAdmin {{ vhost.serveradmin }}
 {% endif %}
