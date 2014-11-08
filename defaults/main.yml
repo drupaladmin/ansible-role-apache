@@ -29,3 +29,9 @@ apache_vhosts_version: "2.2"
 apache_mods_enabled:
   - rewrite.load
   - ssl.load
+
+apache_prefork_startservers: 10
+apache_prefork_minspareservers: 10
+apache_prefork_maxspareservers: 10
+apache_prefork_maxclients: 30
+apache_prefork_maxrequestsperchild: 1000
