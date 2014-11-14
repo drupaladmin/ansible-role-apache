@@ -32,7 +32,7 @@
     owner: root
     group: root
     mode: 0644
-  with: apache_vhosts
+  with_items: apache_vhosts
   notify: restart apache
   when: apache_create_vhosts
 
@@ -41,5 +41,5 @@
     src: "{{ apache_conf_path }}/sites-available/{{ item.servername }}.conf"
     dest: "{{ apache_conf_path }}/sites-enabled/{{ item.servername }}.conf"
     state: link
-  with: apache_vhosts
+  with_items: apache_vhosts
   when: apache_create_vhosts
