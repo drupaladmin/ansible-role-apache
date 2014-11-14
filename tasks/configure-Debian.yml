@@ -28,16 +28,18 @@
 - name: Add apache vhosts configuration.
   template:
     src: "vhosts-{{ apache_vhosts_version }}.conf.j2"
-    dest: "{{ apache_conf_path }}/sites-available/vhosts.conf"
+    dest: "{{ apache_conf_path }}/sites-available/{{ item.servername }}.conf"
     owner: root
     group: root
     mode: 0644
+  with: apache_vhosts
   notify: restart apache
   when: apache_create_vhosts
 
 - name: Add vhost symlink in sites-enabled.
   file:
-    src: "{{ apache_conf_path }}/sites-available/vhosts.conf"
-    dest: "{{ apache_conf_path }}/sites-enabled/vhosts.conf"
+    src: "{{ apache_conf_path }}/sites-available/{{ item.servername }}.conf"
+    dest: "{{ apache_conf_path }}/sites-enabled/{{ item.servername }}.conf"
     state: link
+  with: apache_vhosts
   when: apache_create_vhosts
