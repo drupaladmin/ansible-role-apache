@@ -20,6 +20,7 @@ DirectoryIndex index.php index.html
 </VirtualHost>
 
 {# Set up SSL VirtualHosts #}
+{% if item.use_ssl is defined %}
 <VirtualHost *:{{ apache_listen_port_ssl }}>
   ServerName {{ item.servername }}
   DocumentRoot {{ item.documentroot }}
@@ -47,3 +48,4 @@ DirectoryIndex index.php index.html
   {{ item.extra_parameters }}
 {% endif %}
 </VirtualHost>
+{% endif %}
