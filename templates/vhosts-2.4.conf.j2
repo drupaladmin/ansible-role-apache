@@ -6,6 +6,10 @@ DirectoryIndex index.php index.html
   ServerName {{ item.servername }}
   DocumentRoot {{ item.documentroot }}
 
+{% if item.serveralias is defined %}
+  ServerAlias {{ item.serveralias }}
+{% endif %}
+
 {% if item.serveradmin is defined %}
   ServerAdmin {{ item.serveradmin }}
 {% endif %}
